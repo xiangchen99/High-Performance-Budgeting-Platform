@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     async function fetchTotal() {
-      const res = await fetch("/api/expenses/total-spent");
+      const res = await fetch("https://expense-tracker-backend-ramg.onrender.com/api/expenses/total-spent");
       const data = await res.json();
       setTotalSpent(data.totalSpent);
     }
