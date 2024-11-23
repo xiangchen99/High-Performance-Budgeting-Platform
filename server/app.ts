@@ -8,16 +8,16 @@ const app = new Hono()
 
 app.use(logger())
 
-app.use('/api/*', cors({
-    origin: 'https://expense-tracker-frontend-hr18.onrender.com/', // Replace with your frontend's domain
-    allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests'],
-    allowMethods: ['POST', 'GET', 'OPTIONS'],
-    exposeHeaders: ['Content-Length', 'X-Kuma-Revision'],
-    maxAge: 600,
-    credentials: true,
-  }))
+app.use(
+    '/api/*',
+    cors({
+      origin: 'https://expense-tracker-frontend-hr18.onrender.com', // Replace with your frontend's URL
+      allowMethods: ['GET', 'POST', 'PUT', 'DELETE'],
+      allowHeaders: ['Content-Type', 'Authorization'], // Add any custom headers if needed
+    })
+  );
 
-app.route("/api/expenses", expensesRoute)
+app.route("/api/expenses", expensesRoute);
 
 app.get('*', serveStatic({ root: './frontend/dist' }))
 app.get('*', serveStatic({ path: './frontend/dist/index.html' }))
