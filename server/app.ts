@@ -11,6 +11,8 @@ app.use(logger())
 app.use(cors({
     origin: 'https://expense-tracker-frontend-hr18.onrender.com/', // Replace with your frontend's domain
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE'], // Customize methods as needed
+    allowHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   }))
 
 app.route("/api/expenses", expensesRoute)
