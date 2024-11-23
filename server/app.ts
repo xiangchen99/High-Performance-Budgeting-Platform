@@ -8,7 +8,7 @@ const app = new Hono()
 
 app.use(logger())
 
-app.use(cors({
+app.use('/api/*', cors({
     origin: 'https://expense-tracker-frontend-hr18.onrender.com/', // Replace with your frontend's domain
     allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests'],
     allowMethods: ['POST', 'GET', 'OPTIONS'],
