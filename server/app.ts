@@ -9,7 +9,7 @@ const app = new Hono()
 app.use(logger())
 
 app.use(cors({
-    origin: 'https://expense-tracker-frontend-hr18.onrender.com/', // Replace with your frontend's domain
+    origin: 'https://expense-tracker-backend-hr18.onrender.com/', // Replace with your frontend's domain
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE'], // Customize methods as needed
   }))
 
