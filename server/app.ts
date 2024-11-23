@@ -8,16 +8,14 @@ const app = new Hono();
 
 app.use(logger());
 
-// app.use(
-//     '/api/*',
-//     cors({
-//       origin: 'https://expense-tracker-frontend-hr18.onrender.com', // Replace with your frontend's URL
-//       allowMethods: ['GET', 'POST', 'PUT', 'DELETE'],
-//       allowHeaders: ['Content-Type', 'Authorization'], // Add any custom headers if needed
-//     })
-//   );
-
-app.use(cors());
+app.use(
+    '/api/*',
+    cors({
+      origin: 'https://expense-tracker-frontend-hr18.onrender.com', // Replace with your frontend's URL
+      allowMethods: ['GET', 'POST', 'PUT', 'DELETE'],
+      allowHeaders: ['Content-Type', 'Authorization'], // Add any custom headers if needed
+    })
+  );
 
 app.route("/api/expenses", expensesRoute);
 
