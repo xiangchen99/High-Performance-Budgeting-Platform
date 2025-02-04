@@ -18,7 +18,7 @@ app.use(
     })
   );
 
-const apiRoutes = app.basePath("/api").route("/expenses", expensesRoute).route("/auth", authRoute);
+const apiRoutes = app.basePath("/api").route("/expenses", expensesRoute).route("/", authRoute);
 
 app.get('*', serveStatic({ root: './frontend/dist' }))
 app.get('*', serveStatic({ path: './frontend/dist/index.html' }))
